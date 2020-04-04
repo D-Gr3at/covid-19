@@ -272,7 +272,6 @@ $("#form2").submit(function (e) {
 	var post_url = $(this).attr("action"); //get form action url
 	var request_method = $(this).attr("method"); //get form GET/POST method
 	var form_data = $(this).serialize(); //Encode form elements for submission
-	console.log(form_data);
     
 	$.ajax({
 		url : post_url,
@@ -337,21 +336,19 @@ elementArray.forEach(element => {
                 click +=3;
             }
             if(array.length == 12){
-                console.log(click);
                 
                 $.ajax({
                     url : 'utilities.php',
                     type: 'post',
                     data : "data="+array+"&op=submit&click="+click
-                 });//.done(function(response){ 
-                //     $parse_response = JSON.parse(response);
-                //     if($parse_response.success == false){
-                //         $("#server-results").html($parse_response.message);
-                //     }
-                //     if($parse_response.success == true){
-                //         doRedirect();
-                //     }
-                // });
+                 }).done(function(response){ 
+                    $parse_response = JSON.parse(response);
+                    // if($parse_response.success == false){
+                    //     $("#server-results").html($parse_response.message);
+                    // }
+                    // if($parse_response.success == true){
+                    // }
+                });
             }
             break;
         }

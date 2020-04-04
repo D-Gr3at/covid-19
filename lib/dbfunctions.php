@@ -44,7 +44,6 @@ class dao{
         $id = pg_fetch_result($resource_id, 0, 'id');
         $id = $id + 1;
         $query = "insert into user_data values(".$id.",'$data[0]','$data[1]','$data[2]','$data[3]','$data[4]','$data[5]','$data[6]','$data[7]','$data[8]', '$data[9]', '$data[10]', '$data[11]','$prescription')";
-        echo $query;
         $result = pg_query($query);
         $count = pg_num_rows($result);
         if($count == 0){

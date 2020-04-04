@@ -21,7 +21,6 @@
     }
     if($op == "submit"){
         $click = $_REQUEST['click'];
-        echo $click;
         $user_data = explode(',',$_REQUEST['data']);
         $result = $db_object->store_values($user_data, $click);
         if($result == 0){
