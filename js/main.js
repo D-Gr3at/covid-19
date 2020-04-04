@@ -262,34 +262,10 @@ function noClick() {
             document.getElementById("holder").innerHTML = 'HELLO.';
     }
 };
-// $("#form1").submit(function (e) { 
-//     e.preventDefault(); //prevent default action 
-// 	var post_url = $(this).attr("action"); //get form action url
-// 	var request_method = $(this).attr("method"); //get form GET/POST method
-// 	var form_data = $(this).serialize(); //Encode form elements for submission
-//     console.log(form_data);
-//     console.log(post_url);
-//     console.log(request_method);
-    
-	// $.ajax({
-	// 	url : post_url,
-	// 	type: request_method,
-	// 	data : form_data+"&op=submit"
-    // }).done(function(response){ 
-    //     $parse_response = JSON.parse(response);
-    //     if($parse_response.success == false){
-    //         $("#server-results").html($parse_response.message);
-    //     }
-    //     if($parse_response.success == true){
-    //         window.location.replace('index.php');
-    //     }
-	// });
-//});
 
 function doRedirect(){
     window.location.replace('home.php');
 }
-
 
 $("#form2").submit(function (e) { 
     e.preventDefault(); //prevent default action 
@@ -318,91 +294,67 @@ let elementArray = document.querySelectorAll('.nexttab');
 let click = 0;
 let array = [];
 let i = 0; 
-console.log(array);
 
 elementArray.forEach(element => {
     element.addEventListener('click', (e) => {
         e.preventDefault();
         while(i < elementArray.length){
             array.push(element.value);
-            console.log(array);
-            
-            // $.ajax({
-            //     url : 'utilities.php',
-            //     type: 'post',
-            //     data : "clicked="+value+"&op=submit"
-            //  });//.done(function(response){ 
-            //     $parse_response = JSON.parse(response);
-            //     if($parse_response.success == false){
-            //         $("#server-results").html($parse_response.message);
-            //     }
-            //     if($parse_response.success == true){
-            //         doRedirect();
-            //     }
-            // });
+            if(element.value == "YES" && i == 0){
+                click +=1;
+            }
+            if(element.value == "YES" && i == 1){
+                click +=1;
+            }
+            if(element.value == "YES" && i == 2){
+                click +=1;
+            }
+            if(element.value == "YES" && i == 3){
+                click +=1;
+            }
+            if(element.value == "YES" && i == 4){
+                click +=1;
+            }
+            if(element.value == "YES" && i == 5){
+                click +=1;
+            }
+            if(element.value == "YES" && i == 6){
+                click +=1;
+            }
+            if(element.value == "YES" && i == 7){
+                click +=2;
+            }
+            if(element.value == "YES" && i == 8){
+                click +=2;
+            }
+            if(element.value == "YES" && i == 9){
+                click +=3;
+            }
+            if(element.value == "YES" && i == 10){
+                click +=3;
+            }
+            if(element.value == "YES" && i == 11){
+                click +=3;
+            }
+            if(array.length == 12){
+                console.log(click);
+                
+                $.ajax({
+                    url : 'utilities.php',
+                    type: 'post',
+                    data : "data="+array+"&op=submit&click="+click
+                 });//.done(function(response){ 
+                //     $parse_response = JSON.parse(response);
+                //     if($parse_response.success == false){
+                //         $("#server-results").html($parse_response.message);
+                //     }
+                //     if($parse_response.success == true){
+                //         doRedirect();
+                //     }
+                // });
+            }
             break;
         }
         i++;
     });
 });
-
-// let val = (value) => {
-//     array.push(value);
-//     if(array.length == 12){
-//         return array;
-//     }
-// }
-// console.log(val);
-
-// let yesbutton = document.querySelectorAll('.nexttab');
-
-// let hiddenbutton = document.querySelectorAll('.hidden');
-
-// for ( var a = 0; a<=yesbutton.length; ++a){
-
-//     if (yesbutton[a].isClick){
-//         let value = yesbutton[a].value;
-        
-//         if (value == "Yes") {
-//             weightvalue = hiddenbutton[a].value; 
-//         }
-//         else {
-//             weightvalue = 0;
-//         }
-//     }
-// }
-//console.log(yesbutton);
-// for ( var a = 0; a<=yesbutton.length; ++a){
-
-//     if (yesbutton[a].clicked){
-//         value = yesbutton[a].value;
-        
-//         if (value == "Yes") {
-//         weightvalue = hiddenbutton[a].value;
-        
-//         }
-//         else {
-//         weightvalue = 0;
-//         }
-        
-//     }
-// }
-// for ( var a = 0; a<=yesbutton.length; ++a){
-
-//     if ($(yesbutton[a]).click(function(){
-//     value = $(yesbutton[a]).val();
-//     console.log(value);
-    
-//     if (value == "Yes") {
-//     weightvalue = $(hiddenbutton[a]).val();
-//     console.log(weightvalue);
-    
-    
-//     }
-//     else {
-//     weightvalue = 0;
-//     }
-    
-//     }));
-    
-// }

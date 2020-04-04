@@ -127,7 +127,6 @@ $_SESSION['username'] = "admin@ndc.com";
                                         class="nexttab btn btn-primary btn-lg form-control form-control-lg"
                                         onclick="onClick()">
                                 </div>
-                                <input type='hidden' value='1' id='question'/>
                                 <div class="input-group mb-3">
                                     <input type="button" value="NO" name="cough[]"
                                         class="nexttab btn btn-primary btn-lg form-control form-control-lg"
@@ -148,7 +147,6 @@ $_SESSION['username'] = "admin@ndc.com";
                                         class="nexttab btn btn-primary btn-lg form-control form-control-lg"
                                         onclick="onClick()">
                                 </div>
-                                <input type='hidden' value='1' id='question'/>
                                 <div class="input-group mb-3">
                                     <input type="button" value="NO" name="cold[]"
                                         class="nexttab btn btn-primary btn-lg form-control form-control-lg"
@@ -172,7 +170,6 @@ $_SESSION['username'] = "admin@ndc.com";
                                         class="nexttab btn btn-primary btn-lg form-control form-control-lg"
                                         onclick="onClick()">
                                 </div>
-                                <input type='hidden' value='1' id='question'/>
                                 <div class="input-group mb-3">
                                     <input type="button" value="NO" name="diarrhea[]"
                                         class="nexttab btn btn-primary btn-lg form-control form-control-lg"
@@ -197,7 +194,6 @@ $_SESSION['username'] = "admin@ndc.com";
                                         class="nexttab btn btn-primary btn-lg form-control form-control-lg"
                                         onclick="onClick()">
                                 </div>
-                                <input type='hidden' value='1' id='question'/>
                                 <div class="input-group mb-3">
                                     <input type="button" value="NO" name="sorethroat[]"
                                         class="nexttab btn btn-primary btn-lg form-control form-control-lg"
@@ -222,7 +218,6 @@ $_SESSION['username'] = "admin@ndc.com";
                                         class="nexttab btn btn-primary btn-lg form-control form-control-lg"
                                         onclick="onClick()">
                                 </div>
-                                <input type='hidden' value='1' id='question'/>
                                 <div class="input-group mb-3">
                                     <input type="button" value="NO" name="bodyache[]"
                                         class="nexttab btn btn-primary btn-lg form-control form-control-lg"
@@ -247,7 +242,6 @@ $_SESSION['username'] = "admin@ndc.com";
                                         class="nexttab btn btn-primary btn-lg form-control form-control-lg"
                                         onclick="onClick()">
                                 </div>
-                                <input type='hidden' value='1' id='question'/>
                                 <div class="input-group mb-3">
                                     <input type="button" value="NO" name="headache[]"
                                         class="nexttab btn btn-primary btn-lg form-control form-control-lg"
@@ -274,7 +268,6 @@ $_SESSION['username'] = "admin@ndc.com";
                                         class="nexttab btn btn-primary btn-lg form-control form-control-lg"
                                         onclick="onClick()">
                                 </div>
-                                <input type='hidden' value='1' id='question'/>
                                 <div class="input-group mb-3">
                                     <input type="button" value="NO" name="temperature[]"
                                         class="nexttab btn btn-primary btn-lg form-control form-control-lg"
@@ -298,7 +291,6 @@ $_SESSION['username'] = "admin@ndc.com";
                                         class="nexttab btn btn-primary btn-lg form-control form-control-lg"
                                         onclick="onClickdouble()">
                                 </div>
-                                <input type='hidden' value='2' id='question'/>
                                 <div class="input-group mb-3">
                                     <input type="button" value="NO" name="breathing[]"
                                         class="nexttab btn btn-primary btn-lg form-control form-control-lg"
@@ -322,7 +314,6 @@ $_SESSION['username'] = "admin@ndc.com";
                                         class="nexttab btn btn-primary btn-lg form-control form-control-lg"
                                         onclick="onClickdouble()">
                                 </div>
-                                <input type='hidden' value='2' id='question'/>
                                 <div class="input-group mb-3">
                                     <input type="button" value="NO" name="fatigue[]" class="nexttab btn btn-primary btn-lg form-control form-control-lg"
                                         onclick="noClick()">
@@ -348,7 +339,6 @@ $_SESSION['username'] = "admin@ndc.com";
                                         class="nexttab btn btn-primary btn-lg form-control form-control-lg"
                                         onclick="onClicktriple()">
                                 </div>
-                                <input type='hidden' value='3' id='question'/>
                                 <div class="input-group mb-3">
                                     <input type="button" value="NO" name="traveled[]"
                                         class="nexttab btn btn-primary btn-lg form-control form-control-lg"
@@ -375,7 +365,6 @@ $_SESSION['username'] = "admin@ndc.com";
                                         class="nexttab btn btn-primary btn-lg form-control form-control-lg"
                                         onclick="onClicktriple()">
                                 </div>
-                                <input type='hidden' value='3' id='question'/>
                                 <div class="input-group mb-3">
                                     <input type="button" value="NO" name="infected[]"
                                         class="nexttab btn btn-primary btn-lg form-control form-control-lg"
@@ -400,7 +389,6 @@ $_SESSION['username'] = "admin@ndc.com";
                                         class="nexttab btn btn-primary btn-lg form-control form-control-lg"
                                         onclick="onClicktriple()">
                                 </div>
-                                <input type='hidden' value='3' id='question'/>
                                 <div class="input-group mb-3">
                                     <input type="button" value="NO" name="sick[]"
                                         class="nexttab btn btn-primary btn-lg form-control form-control-lg"
@@ -424,7 +412,7 @@ $_SESSION['username'] = "admin@ndc.com";
                                 <h2 id="holder"></h2>
                                 <p id="resulthold" class="  font-weight-bold" style="color: #000000;"></p>
                                 <div class="input-group mb-3">
-                                    <input type="submit" name="Button1" value="SUBMIT RESULT" id="Button1"
+                                    <input type="submit" name="Button1" value="RESTART TEST" id="Button1"
                                         class=" btn btn-primary btn-lg form-control form-control-lg">
                                 </div>
                             </div>
