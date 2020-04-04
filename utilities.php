@@ -1,6 +1,6 @@
 <?php
     session_start();
-    include("/lib/dbfunctions.php");
+    include("lib/dbfunctions.php");
     $db_object = new dao();
     $data = array();
     $op = $_REQUEST['op'];
