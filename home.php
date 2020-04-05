@@ -4,7 +4,7 @@ ini_set('display_errors', 0);
 ini_set('display_startup_errors', 0);
 error_reporting(E_ALL);
     // $query = 
-include("/lib/dbfunctions.php");
+include("lib/dbfunctions.php");
 $cough_query = "SELECT cough FROM user_data WHERE cough='YES'";
 $cough_resource = pg_query($cough_query);
 $cough_cases = pg_num_rows($cough_resource);
