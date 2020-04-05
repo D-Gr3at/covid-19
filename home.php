@@ -9,6 +9,8 @@ $cough_query = "SELECT cough FROM user_data WHERE cough='YES'";
 $cough_resource = pg_query($cough_query);
 $cough_cases = pg_num_rows($cough_resource);
 
+echo $cough_cases;
+
 $cold_query = "SELECT cold FROM user_data WHERE cold='YES'";
 $cold_resource = pg_query($cold_query);
 $cold_cases = pg_num_rows($cold_resource);
