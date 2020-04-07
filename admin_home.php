@@ -8,7 +8,7 @@ if (!isset($_SESSION['full_name'])) {
     header("Location: login.php");
 }
 include("lib/dbfunctions.php");
-$query = "SELECT * FROM user_info";
+$query = "SELECT * FROM user_info ORDER BY id ASC";
 $resource = pg_query($query);
 $users = pg_fetch_all($resource);
 
