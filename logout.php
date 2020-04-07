@@ -1,9 +1,9 @@
 <?php
 session_start();
-if(isset($_SESSION['username'])){
+if(isset($_SESSION['full_name'])){
     session_destroy();
-    header("Location: index.php"); // Redirecting To Home Page
+    header("Location: login.php");
 }else{
-    header("Location: home.php");
+    header("Location: index.php");
 }
 ?>

@@ -263,8 +263,8 @@ function noClick() {
     }
 };
 
-function doRedirect(){
-    window.location.replace('home.php');
+function doRedirect(url){
+    window.location.replace(url);
 }
 
 $("#form2").submit(function (e) { 
@@ -283,7 +283,7 @@ $("#form2").submit(function (e) {
             $("#server-results").html($parse_response.message);
         }
         if($parse_response.success == true){
-            doRedirect();
+            doRedirect('home.php');
         }
 	});
 });
@@ -335,12 +335,12 @@ elementArray.forEach(element => {
             if(element.value == "YES" && i == 11){
                 click +=3;
             }
-            if(array.length == 12){
-                
+            if(array.length == 12){  
+                let user_id = $("#user_id").val()
                 $.ajax({
                     url : 'utilities.php',
                     type: 'post',
-                    data : "data="+array+"&op=submit&click="+click
+                    data : "data="+array+"&op=submit&click="+click+"&user_id="+user_id
                  }).done(function(response){ 
                     $parse_response = JSON.parse(response);
                     // if($parse_response.success == false){
@@ -355,3 +355,97 @@ elementArray.forEach(element => {
         i++;
     });
 });
+
+function validation() {
+    if ($("#phone_or_email").val() == "") {
+        $("#phone_or_email").addClass("is-invalid");
+        return false;
+    } else {
+        $("#phone_or_email").removeClass("is-invalid");
+    }
+}
+$(document).ready(function(e) {
+    $("#phone_or_email").on("keyup", function() {
+        // var regPhone = /^[0]\d{10}$/;
+        // var regxMail = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/
+        if ($("#phone_or_email").val() == "") {
+            $("#phone_or_email").addClass("is-invalid");
+            return false;
+        } else{
+            $("#phone_or_email").removeClass("is-invalid");
+        }
+    });
+});
+
+//index.html 
+$("#singnupFrom").submit(function (e) { 
+    e.preventDefault(); //prevent default action 
+	var post_url = $(this).attr("action"); //get form action url
+	var request_method = $(this).attr("method"); //get form GET/POST method
+    var form_data = $(this).serialize(); //Encode form elements for submission
+    console.log(form_data);
+	$.ajax({
+		url : post_url,
+		type: request_method,
+		data : form_data+"&op=signup&tested=NO"
+    }).done(function(response){ 
+        $parse_response = JSON.parse(response);
+        if($parse_response.success == false){
+            $("#server-results").empty();
+            $("#server-results").html($parse_response.message);
+        }
+        if($parse_response.success == true){
+            doRedirect('login.php');
+        }
+	});
+});
+
+// $("#signinForm").submit(function (e) { 
+//     e.preventDefault(); //prevent default action 
+// 	//var post_url = $(this).attr("action"); //get form action url
+// 	var request_method = $(this).attr("method"); //get form GET/POST method
+//     var form_data = $(this).serialize(); //Encode form elements for submission
+//     console.log(form_data);
+// 	$.ajax({
+// 		url : post_url,
+// 		type: request_method,
+// 		data : form_data+"&op=signin"
+//     }).done(function(response){ 
+//         $parse_response = JSON.parse(response);
+//         if($parse_response.success == false){
+//             $("#server-results").empty();
+//             $("#server-results").html($parse_response.message);
+//         }
+//         if($parse_response.success == true){
+//             doRedirect('user_home.php');
+//         }
+// 	});
+// });
+
+function getDetails(id){
+    $.ajax({
+        url: 'utilities.php',
+        type: 'get',
+        data: {data_id: id}
+    }).done(function(response){
+        let result = JSON.parse(response);
+        if(result.length != 0){
+            let html = `<span>RESULT=> ${result[13]}</span><br/>
+            <span>COUGH=> ${result[1]}</span><br/>
+            <span>COLD=> ${result[2]}</span><br/>
+            <span>DIARRHEA=> ${result[3]}</span><br/>
+            <span>SORE THROAT=> ${result[4]}</span><br/>
+            <span>BODY ACHE=> ${result[5]}</span><br/>
+            <span>HEADACHE=> ${result[6]}</span><br/>
+            <span>HIGH TEMPERATURE=> ${result[7]}</span><br/>
+            <span>BREATHING DIFFICULTY=> ${result[8]}</span><br/>
+            <span>FATIGUE=> ${result[9]}</span><br/>
+            <span>TRAVELLED WITHIN 14 DAYS? ${result[10]}</span><br/>
+            <span>TRAVELLED TO INFECTED AREA? ${result[11]}</span><br/>
+            <span>CONTACT WITH INFECTED PERSON? ${result[12]}</span><br/>`;
+            $('.display-details').html(html);
+        }else{
+            $('.display-details').html("<p class='display-4 text-center'>Information not Available</p>");
+        }
+    })
+}
