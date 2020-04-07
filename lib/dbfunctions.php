@@ -105,10 +105,14 @@ class dao{
     }
 
     public function getData($data_id){
-        $query = "SELECT * FROM user_data WHERE id='$data_id'";
+        $query = "SELECT * FROM user_data WHERE user_id='$data_id'";
         $data_resource = pg_query($query);
         $data = pg_fetch_row($data_resource);
-        return $data;
+        if(pg_num_rows($data_resource) == 1){
+            return $data;
+        }else if($data == false){
+            return 1;
+        }
     }
 }
 

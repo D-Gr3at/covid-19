@@ -82,6 +82,15 @@
     if(isset($_REQUEST['data_id'])){
         $data_id = $_REQUEST['data_id'];
         $result = $db_object->getData($data_id);
-        echo json_encode($result);
+        //var_dump($result);
+        if ($result == 1) {
+            $data['success'] = false;
+            $data['message'] = "This user have not been tested.";
+            echo json_encode($data);
+        }else{
+            $data['success'] = true;
+            $data['message'] = $result;
+            echo json_encode($data);
+        }
     }
 ?>

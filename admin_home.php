@@ -119,13 +119,13 @@ $users = pg_fetch_all($resource);
                         $data_resource = pg_query($query);
                         $data = pg_fetch_row($data_resource);
                     echo "<tr>
-                            <td>".$data[0]."</td>
+                            <td>".$user['id']."</td>
                             <td>".$user['full_name']."</td>
                             <td>".$user['email']."</td>
                             <td>".$user['phone']."</td>
                             <td>".$data[13]."</td>
                             <td>"."<a type='button' class='btn btn-primary btn-sm text-white' data-toggle='modal' data-target='#staticBackdrop' 
-                            onClick='getDetails(".$data[0].")'>View</a>"."</td>
+                            onClick='getDetails(".$user['id'].")'>View</a>"."</td>
                         </tr>";
                 }
                 ?>

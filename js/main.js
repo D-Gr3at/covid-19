@@ -429,23 +429,25 @@ function getDetails(id){
         data: {data_id: id}
     }).done(function(response){
         let result = JSON.parse(response);
-        if(result.length != 0){
-            let html = `<span>RESULT=> ${result[13]}</span><br/>
-            <span>COUGH=> ${result[1]}</span><br/>
-            <span>COLD=> ${result[2]}</span><br/>
-            <span>DIARRHEA=> ${result[3]}</span><br/>
-            <span>SORE THROAT=> ${result[4]}</span><br/>
-            <span>BODY ACHE=> ${result[5]}</span><br/>
-            <span>HEADACHE=> ${result[6]}</span><br/>
-            <span>HIGH TEMPERATURE=> ${result[7]}</span><br/>
-            <span>BREATHING DIFFICULTY=> ${result[8]}</span><br/>
-            <span>FATIGUE=> ${result[9]}</span><br/>
-            <span>TRAVELLED WITHIN 14 DAYS? ${result[10]}</span><br/>
-            <span>TRAVELLED TO INFECTED AREA? ${result[11]}</span><br/>
-            <span>CONTACT WITH INFECTED PERSON? ${result[12]}</span><br/>`;
+        let data = result.message;
+        
+        if(result.success == true){
+            let html = `<span>RESULT=> ${data[13]}</span><br/>
+            <span>COUGH=> ${data[1]}</span><br/>
+            <span>COLD=> ${data[2]}</span><br/>
+            <span>DIARRHEA=> ${data[3]}</span><br/>
+            <span>SORE THROAT=> ${data[4]}</span><br/>
+            <span>BODY ACHE=> ${data[5]}</span><br/>
+            <span>HEADACHE=> ${data[6]}</span><br/>
+            <span>HIGH TEMPERATURE=> ${data[7]}</span><br/>
+            <span>BREATHING DIFFICULTY=> ${data[8]}</span><br/>
+            <span>FATIGUE=> ${data[9]}</span><br/>
+            <span>TRAVELLED WITHIN 14 DAYS? ${data[10]}</span><br/>
+            <span>TRAVELLED TO INFECTED AREA? ${data[11]}</span><br/>
+            <span>CONTACT WITH INFECTED PERSON? ${data[12]}</span><br/>`;
             $('.display-details').html(html);
-        }else{
-            $('.display-details').html("<p class='display-4 text-center'>Information not Available</p>");
+        }else if(result.success == false){
+            $('.display-details').html(`<p class='display-4 text-center'>${result.message}</p>`);
         }
     })
 }
