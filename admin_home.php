@@ -72,7 +72,7 @@ $users = pg_fetch_all($resource);
                 </div>";
         }
     ?>
-    <div class="container mt-2">
+    <!-- <div class="container mt-2">
         <form action="" method="post" id="search-form">
             <div class="row">
                 <div class="col-md-4">
@@ -99,7 +99,7 @@ $users = pg_fetch_all($resource);
             </div>
         </form>
         
-    </div>
+    </div> -->
     <div class="d-flex justify-content-center mt-5">
         <table class="table table-striped container">
             <thead>
