@@ -451,3 +451,7 @@ function getDetails(id){
         }
     })
 }
+
+$(document).ready(function(){
+    $('table').DataTable();
+});

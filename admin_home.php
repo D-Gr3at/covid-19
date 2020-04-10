@@ -17,12 +17,13 @@ $users = pg_fetch_all($resource);
 <head runat="server">
     <script type="text/javascript" async="" src="https://www.google-analytics.com/analytics.js"></script>
     <script async="" src="https://www.googletagmanager.com/gtag/js?id=UA-105158148-2"></script>
-    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n"
-            crossorigin="anonymous"></script>
-    <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
-            crossorigin="anonymous"></script>
-    <script src="bootstrap-4.4.1-dist/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.1/css/bootstrap.min.css"/>
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.20/css/dataTables.bootstrap4.min.css"/>
+    <script type="text/javascript" src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.1/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="https://cdn.datatables.net/1.10.20/js/jquery.dataTables.min.js"></script>
+    <script type="text/javascript" src="https://cdn.datatables.net/1.10.20/js/dataTables.bootstrap4.min.js"></script>
+    <!-- <script src="bootstrap-4.4.1-dist/js/bootstrap.min.js"></script> -->
     <script>
         window.dataLayer = window.dataLayer || [];
         function gtag() { dataLayer.push(arguments); }
@@ -100,37 +101,43 @@ $users = pg_fetch_all($resource);
         </form>
         
     </div> -->
-    <div class="d-flex justify-content-center mt-5">
-        <table class="table table-striped container">
-            <thead>
-                <tr>
-                    <th scope="col">#</th>
-                    <th scope="col">Name</th>
-                    <th scope="col">Email</th>
-                    <th scope="col">Phone</th>
-                    <th scope="col">Result</th>
-                    <th scope="col">Action</th>
-                </tr>
-            </thead>
-            <tbody>
-                <?php
-                    foreach($users as $user){
-                        $query = "SELECT * FROM user_data WHERE user_id=".$user['id']."";
-                        $data_resource = pg_query($query);
-                        $data = pg_fetch_row($data_resource);
-                    echo "<tr>
-                            <td>".$user['id']."</td>
-                            <td>".$user['full_name']."</td>
-                            <td>".$user['email']."</td>
-                            <td>".$user['phone']."</td>
-                            <td>".$data[13]."</td>
-                            <td>"."<a type='button' class='btn btn-primary btn-sm text-white' data-toggle='modal' data-target='#staticBackdrop' 
-                            onClick='getDetails(".$user['id'].")'>View</a>"."</td>
-                        </tr>";
-                }
-                ?>
-            </tbody>
-        </table>
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-lg-10 bg-light rounded my-2 py-2">
+                <h4 class="text-center text-dark pt-2">User Test Results</h4>
+                <hr>
+                <table class="table table-bordered table-striped container table-hover">
+                    <thead>
+                        <tr>
+                            <th scope="col">#</th>
+                            <th scope="col">Name</th>
+                            <th scope="col">Email</th>
+                            <th scope="col">Phone</th>
+                            <th scope="col">Result</th>
+                            <th scope="col">Action</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <?php
+                            foreach($users as $user){
+                                $query = "SELECT * FROM user_data WHERE user_id=".$user['id']."";
+                                $data_resource = pg_query($query);
+                                $data = pg_fetch_row($data_resource);
+                            echo "<tr>
+                                    <td>".$user['id']."</td>
+                                    <td>".$user['full_name']."</td>
+                                    <td>".$user['email']."</td>
+                                    <td>".$user['phone']."</td>
+                                    <td>".$data[13]."</td>
+                                    <td>"."<a type='button' class='btn btn-primary btn-sm text-white' data-toggle='modal' data-target='#staticBackdrop' 
+                                    onClick='getDetails(".$user['id'].")'>View</a>"."</td>
+                                </tr>";
+                        }
+                        ?>
+                    </tbody>
+                </table>
+            </div>
+        </div>
     </div>
     <div class="modal fade" id="staticBackdrop" data-backdrop="static" tabindex="-1" role="dialog" aria-labelledby="staticBackdropLabel" aria-hidden="true">
         <div class="modal-dialog" role="document">
